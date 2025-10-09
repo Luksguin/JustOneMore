@@ -18,23 +18,29 @@ public class Enemy : MonoBehaviour
     public string boolLeftWalk;
     public string boolRightWalk;
 
-    private int _nextPoint;
+    public Transform nextPoint;
+    public bool patrolling;
+
+    private int _nextIndex;
+    private bool _lookAtPlayer;
+
     private float _xDir;
     private float _yDir;
 
-    private bool _patrolling;
-
     private void Awake()
     {
-        _nextPoint = 0;
+        patrolling = true;
+
+        _nextIndex = 0;
+        _lookAtPlayer = false;
+
         _xDir = 0;
         _yDir = 0;
-        _patrolling = true;
     }
 
     private void Update()
     {
-        if(_patrolling == false) return;
+        if(_lookAtPlayer == true) return;
 
         if (_xDir > 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Olhar para direita;
         {
@@ -56,20 +62,22 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_patrolling)WalkManager();
+        if(!_lookAtPlayer)WalkManager();
     }
 
     private void WalkManager()
     {
-        if (_nextPoint >= points.Length) _nextPoint = 0;
+        if (_nextIndex >= points.Length) _nextIndex = 0;
 
-        if(Vector2.Distance(transform.position, points[_nextPoint].position) > 0)
+        if(patrolling) nextPoint = points[_nextIndex];
+
+        if(Vector2.Distance(transform.position, nextPoint.position) > 0)
         {
-            WalkToPoint(points[_nextPoint]);
+            WalkToPoint(nextPoint);
         }
         else
         {
-            _nextPoint++;
+            _nextIndex++;
         }
     }
 
@@ -135,17 +143,9 @@ public class Enemy : MonoBehaviour
     }
     #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void KillPlayer()
     {
-        if (collision.transform.parent.tag == "Player")
-        {
-            KillPlayer();
-        }
-    }
-
-    private void KillPlayer()
-    {
-        _patrolling = false;
+        _lookAtPlayer = true;
         Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true);
         Player.instance.speed = 0;
 

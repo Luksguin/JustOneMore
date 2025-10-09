@@ -21,8 +21,15 @@ public class Player : Singleton<Player>
     public string boolLeftWalk;
     public string boolRightWalk;
 
+    [Header("Rock")]
+    public int rockAmount;
+    public GameObject rock;
+    [HideInInspector] public Vector2 lastClick;
+
     private float _xDir;
     private float _yDir;
+
+    [HideInInspector] public bool isHelping;
 
     private void Update()
     {
@@ -87,7 +94,20 @@ public class Player : Singleton<Player>
     {
         myRb.linearVelocityX = _xDir * speed * Time.deltaTime;
         myRb.linearVelocityY = _yDir * speed * Time.deltaTime;
-
     }
     #endregion
+
+    private void OnAttack()
+    {
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        lastClick = Camera.main.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
+
+        if (rockAmount > 0) SpawnRock();
+    }
+
+    private void SpawnRock()
+    {
+        Instantiate(rock, null);
+        rockAmount--;
+    }
 }
