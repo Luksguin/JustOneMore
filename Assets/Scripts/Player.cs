@@ -12,6 +12,7 @@ public class Player : Singleton<Player>
     public Animator myAnimator;
     public string friendTag;
 
+    public string gameOverBool;
     public string boolIdle;
     public string helpingBool;
 
@@ -20,8 +21,14 @@ public class Player : Singleton<Player>
     public string boolLeftWalk;
     public string boolRightWalk;
 
+    [HideInInspector] public bool canWalk;
     private float _xDir;
     private float _yDir;
+
+    private void Start()
+    {
+        canWalk = true;
+    }
 
     private void Update()
     {
@@ -72,7 +79,7 @@ public class Player : Singleton<Player>
 
     private void FixedUpdate()
     {
-        Movement();
+        if(canWalk)Movement();
     }
 
     #region MOVEMENT
