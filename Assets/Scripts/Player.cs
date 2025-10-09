@@ -21,14 +21,8 @@ public class Player : Singleton<Player>
     public string boolLeftWalk;
     public string boolRightWalk;
 
-    [HideInInspector] public bool canWalk;
     private float _xDir;
     private float _yDir;
-
-    private void Start()
-    {
-        canWalk = true;
-    }
 
     private void Update()
     {
@@ -79,7 +73,7 @@ public class Player : Singleton<Player>
 
     private void FixedUpdate()
     {
-        if(canWalk)Movement();
+        Movement();
     }
 
     #region MOVEMENT
@@ -96,5 +90,4 @@ public class Player : Singleton<Player>
 
     }
     #endregion
-
 }

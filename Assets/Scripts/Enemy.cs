@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Drawing;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -32,66 +34,23 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(_patrolling == false)
+        if(_patrolling == false) return;
+
+        if (_xDir > 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Olhar para direita;
         {
-            myAnimator.SetBool(boolUpWalk, false);
-            myAnimator.SetBool(boolDownWalk, false);
-            myAnimator.SetBool(boolRightWalk, false);
-            myAnimator.SetBool(boolLeftWalk, false);
-            return;
+            LookRigth();
         }
-
-        if (_xDir > 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Indo para direita;
+        else if (_xDir < 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Olhar para esquerda;
         {
-            myAnimator.SetBool(boolRightWalk, true);
-
-            myAnimator.SetBool(boolUpWalk, false);
-            myAnimator.SetBool(boolDownWalk, false);
-            myAnimator.SetBool(boolLeftWalk, false);
-
-            vision.rotation = Quaternion.Euler(0, 0, 90);
+            LookLeft();
         }
-        else if (_xDir < 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Indo para esquerda;
+        else if (_yDir > 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Olhar para cima;
         {
-            myAnimator.SetBool(boolLeftWalk, true);
-
-            myAnimator.SetBool(boolUpWalk, false);
-            myAnimator.SetBool(boolDownWalk, false);
-            myAnimator.SetBool(boolRightWalk, false);
-
-            vision.rotation = Quaternion.Euler(0, 0, -90);
+            LookUp();
         }
-        else if (_yDir > 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Indo para cima;
+        else if (_yDir < 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Olhar para baixo;
         {
-            myAnimator.SetBool(boolUpWalk, true);
-
-            myAnimator.SetBool(boolDownWalk, false);
-            myAnimator.SetBool(boolRightWalk, false);
-            myAnimator.SetBool(boolLeftWalk, false);
-
-            vision.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        else if (_yDir < 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Indo para baixo;
-        {
-            myAnimator.SetBool(boolDownWalk, true);
-
-            myAnimator.SetBool(boolUpWalk, false);
-            myAnimator.SetBool(boolRightWalk, false);
-            myAnimator.SetBool(boolLeftWalk, false);
-
-            vision.rotation = Quaternion.Euler(0, 0, 0);
-        }
-
-        if (_xDir == 0)
-        {
-            myAnimator.SetBool(boolRightWalk, false);
-            myAnimator.SetBool(boolLeftWalk, false);
-        }
-
-        if (_yDir == 0)
-        {
-            myAnimator.SetBool(boolUpWalk, false);
-            myAnimator.SetBool(boolDownWalk, false);
+            LookDown();
         }
     }
 
@@ -120,8 +79,61 @@ public class Enemy : MonoBehaviour
         _yDir = point.position.y - transform.position.y;
 
         transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime);
-
     }
+
+    #region Animations
+    private void LookUp()
+    {
+        myAnimator.SetBool(boolUpWalk, true);
+
+        myAnimator.SetBool(boolDownWalk, false);
+        myAnimator.SetBool(boolRightWalk, false);
+        myAnimator.SetBool(boolLeftWalk, false);
+
+        vision.rotation = Quaternion.Euler(0, 0, 180);
+    }
+
+    private void LookDown()
+    {
+        myAnimator.SetBool(boolDownWalk, true);
+
+        myAnimator.SetBool(boolUpWalk, false);
+        myAnimator.SetBool(boolRightWalk, false);
+        myAnimator.SetBool(boolLeftWalk, false);
+
+        vision.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    private void LookLeft()
+    {
+        myAnimator.SetBool(boolLeftWalk, true);
+
+        myAnimator.SetBool(boolUpWalk, false);
+        myAnimator.SetBool(boolDownWalk, false);
+        myAnimator.SetBool(boolRightWalk, false);
+
+        vision.rotation = Quaternion.Euler(0, 0, -90);
+    }
+
+    private void LookRigth()
+    {
+        myAnimator.SetBool(boolRightWalk, true);
+
+        myAnimator.SetBool(boolUpWalk, false);
+        myAnimator.SetBool(boolDownWalk, false);
+        myAnimator.SetBool(boolLeftWalk, false);
+
+        vision.rotation = Quaternion.Euler(0, 0, 90);
+    }
+
+    private void StopAnimations()
+    {
+        myAnimator.SetBool(boolUpWalk, false);
+        myAnimator.SetBool(boolDownWalk, false);
+        myAnimator.SetBool(boolRightWalk, false);
+        myAnimator.SetBool(boolLeftWalk, false);
+    }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -135,7 +147,28 @@ public class Enemy : MonoBehaviour
     {
         _patrolling = false;
         Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true);
-        Player.instance.canWalk = false;
-       //Testa isso aq transform.LookAt(Player.instance.transform);
+        Player.instance.speed = 0;
+
+        _xDir = Player.instance.transform.position.x - transform.position.x;
+        _yDir = Player.instance.transform.position.y - transform.position.y;
+
+        if (_xDir > 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Olhar para direita;
+        {
+            LookRigth();
+        }
+        else if (_xDir < 0 && Mathf.Abs(_xDir) > Mathf.Abs(_yDir)) // Olhar para esquerda;
+        {
+            LookLeft();
+        }
+        else if (_yDir > 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Olhar para cima;
+        {
+            LookUp();
+        }
+        else if (_yDir < 0 && Mathf.Abs(_yDir) > Mathf.Abs(_xDir)) // Olhar para baixo;
+        {
+            LookDown();
+        }
+
+        Invoke("StopAnimations", .25f);
     }
 }
