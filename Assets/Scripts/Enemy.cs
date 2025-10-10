@@ -18,8 +18,8 @@ public class Enemy : MonoBehaviour
     public string boolLeftWalk;
     public string boolRightWalk;
 
-    public Transform nextPoint;
-    public bool patrolling;
+    [HideInInspector] public Transform nextPoint;
+    [HideInInspector] public bool patrolling;
 
     private int _nextIndex;
     private bool _lookAtPlayer;
