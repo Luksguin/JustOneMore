@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        foreach (var p in points) p.parent = null;
+
         patrolling = true;
 
         _nextIndex = 0;

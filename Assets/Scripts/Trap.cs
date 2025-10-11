@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.Universal;
+using System.Collections.Generic;
 
 public class Trap : MonoBehaviour
 {
@@ -18,9 +19,17 @@ public class Trap : MonoBehaviour
     public float newRadius_oMsmDaCircleLight;
     public CircleCollider2D[] circleTriggers;
     public Light2D[] circleLights;
-    public Light2D[] visionLights;
 
     private bool _onLight;
+    private List<float> _startRadius = new List<float>();
+
+    private void Awake()
+    {
+        for(int i = 0; i < circleTriggers.Length; i++)
+        {
+            _startRadius.Add(circleTriggers[i].radius);
+        }
+    }
 
     private void Update()
     {
@@ -37,7 +46,10 @@ public class Trap : MonoBehaviour
     {
         _onLight = false;
         foreach (var c in circleLights) c.enabled = false;
-        foreach (var v in visionLights) v.enabled = true;
+        for (int i = 0; i < circleTriggers.Length; i++)
+        {
+            circleTriggers[i].radius = _startRadius[i];
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,7 +62,6 @@ public class Trap : MonoBehaviour
             foreach(var r in myRenderers) r.DOColor(Color.gray, duration);
 
             _onLight = true;
-            foreach (var v in visionLights) v.enabled = false;
             foreach (var t in circleTriggers) t.radius = newRadius_oMsmDaCircleLight;
 
             Invoke("OffLight", duration);
