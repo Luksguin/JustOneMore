@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RockTrigger : MonoBehaviour
+public class SoundsTrigger : MonoBehaviour
 {
     public Enemy enemy;
     public SpriteRenderer enemyRenderer;

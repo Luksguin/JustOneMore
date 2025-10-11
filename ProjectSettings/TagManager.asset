@@ -46,11 +46,11 @@ TagManager:
   - name: Backgrond
     uniqueID: 2065754559
     locked: 0
-  - name: Person
-    uniqueID: 2050400039
-    locked: 0
   - name: Scenary
     uniqueID: 2802002585
+    locked: 0
+  - name: Person
+    uniqueID: 2050400039
     locked: 0
   m_RenderingLayers:
   - Default

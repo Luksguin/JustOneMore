@@ -1,0 +1,61 @@
+using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Rendering.Universal;
+
+public class Trap : MonoBehaviour
+{
+    public ParticleSystem vfx;
+    public AudioSource sfx;
+    public Collider2D myCollider;
+    public SpriteRenderer[] myRenderers;
+
+    public Color startColor;
+    public Color endColor;
+    public float duration;
+    public float frequency;
+
+    [Header("Enemies")]
+    public float newRadius_oMsmDaCircleLight;
+    public CircleCollider2D[] circleTriggers;
+    public Light2D[] circleLights;
+    public Light2D[] visionLights;
+
+    private bool _onLight;
+
+    private void Update()
+    {
+        if (!_onLight) return;
+
+        foreach (var c in circleLights)
+        {
+            c.enabled = true;
+            c.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time, frequency));
+        }
+    }
+
+    private void OffLight()
+    {
+        _onLight = false;
+        foreach (var c in circleLights) c.enabled = false;
+        foreach (var v in visionLights) v.enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            vfx.Play();
+            sfx.Play();
+
+            foreach(var r in myRenderers) r.DOColor(Color.gray, duration);
+
+            _onLight = true;
+            foreach (var v in visionLights) v.enabled = false;
+            foreach (var t in circleTriggers) t.radius = newRadius_oMsmDaCircleLight;
+
+            Invoke("OffLight", duration);
+
+            Destroy(myCollider);
+        }
+    }
+}
