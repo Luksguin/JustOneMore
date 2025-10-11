@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Tiles_Praia_23
+  m_Name: Barreiras_12
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: 1821759754, guid: b61a3805724aa9946b47474b87eb4bbe, type: 3}
+  m_Sprite: {fileID: -1604494501, guid: dea225fdfd4b7254d9e8b5e3f4404665, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
