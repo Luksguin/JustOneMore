@@ -1,19 +1,20 @@
 using UnityEngine;
 
+// Responsável pela interação do Player com Aliados;
+
 public class Friend : MonoBehaviour
 {
-    public string playerTag;
-    public float weight;
+    public float weight; // Nerf de velocidade; Trocar para um GameManager futuramente;
     public AudioSource myAudioSource;
     public GameObject myCollider;
     public GameObject myRenderer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.parent.tag == playerTag && !Player.instance.isHelping)
+        if(collision.transform.parent.tag == "Player" && !Player.instance.isHelping) // Garante que irá carregar apenas um aliado por vez;
         {
-            Player.instance.myAnimator.SetBool(Player.instance.helpingBool, true);
-            Player.instance.speed /= weight;
+            Player.instance.myAnimator.SetBool(Player.instance.helpingBool, true); // Atualiza a animação do Player;
+            Player.instance.speed /= weight; // Nerfa a velocidade do Player;
             Player.instance.isHelping = true;
 
             myAudioSource.Play();
