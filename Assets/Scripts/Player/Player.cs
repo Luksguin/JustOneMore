@@ -23,15 +23,11 @@ public class Player : Singleton<Player>
     public string boolLeftWalk;
     public string boolRightWalk;
 
-    [Header("Rock")]
-    public int rockAmount; // Quantidade de pedras restantes;
-    public GameObject rock; // Prefab da pedra;
+    [HideInInspector] public bool isHelping; // Salva se o player está ajudando algum aliado; Deve ser public para acessar em "Friend";
     [HideInInspector] public Vector2 lastClick; // Armazena a posição do click; Deve ser public para acessar em "Rock";
 
     private float _xDir;
     private float _yDir;
-
-    [HideInInspector] public bool isHelping; // Salva se o player está ajudando algum aliado; Deve ser public para acessar em "Friend";
 
     private void Update()
     {
@@ -103,20 +99,13 @@ public class Player : Singleton<Player>
     }
     #endregion
 
-    // Atira as pedras;
+    // Atira pedras;
     private void OnAttack()
     {
         // Pega a posião do mouse na tela;
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         lastClick = Camera.main.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
 
-        if (rockAmount > 0) SpawnRock();
-    }
-
-    // Instancia uma pedra;
-    private void SpawnRock()
-    {
-        Instantiate(rock, null);
-        rockAmount--;
+        if (GameManager.instance.rockAmount > 0) GameManager.instance.SpawnRock();
     }
 }

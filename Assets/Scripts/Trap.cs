@@ -22,18 +22,13 @@ public class Trap : MonoBehaviour
     public Color startColor;
     public Color endColor;
 
-    public CircleCollider2D[] circleTriggers; // Triggers de presença;
-    public Light2D[] circleLights; // Luzes dos triggers de presença;
-    public Light2D[] visionLights; // Luzes de visão;
-    public SpriteRenderer[] circleRenderers; // Borda das luzes de presença;
-
     private bool _onLight; // Salva se as luzes estão ligadas;
     private List<float> _startRadius = new List<float>(); // Salva os tamanhos originais dos triggers de presença;
 
     private void Awake()
     {
         // Preenche o vetor com os tamanhos oriinais;
-        for(int i = 0; i < circleTriggers.Length; i++) _startRadius.Add(circleTriggers[i].radius);
+        for(int i = 0; i < GameManager.instance.circleTriggers.Length; i++) _startRadius.Add(GameManager.instance.circleTriggers[i].radius);
     }
 
     private void Update()
@@ -41,24 +36,24 @@ public class Trap : MonoBehaviour
         if (!_onLight) return;
 
         // Ativa as luzes;
-        foreach (var c in circleLights)
+        foreach (var c in GameManager.instance.circleLights)
         {
             c.enabled = true;
             c.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time, frequency));
         }
 
-        foreach (var c in circleRenderers) c.enabled = true; // Ativa as bordas das luzes; 
-        foreach (var v in visionLights) v.enabled = false; // Desativa as luzes das visão;
+        foreach (var c in GameManager.instance.circleRenderers) c.enabled = true; // Ativa as bordas das luzes; 
+        foreach (var v in GameManager.instance.visionLights) v.enabled = false; // Desativa as luzes das visão;
     }
 
     // Retira os inimigoos do estado de alerta;
     private void OffLight()
     {
         _onLight = false;
-        foreach (var c in circleLights) c.enabled = false;
-        for (int i = 0; i < circleTriggers.Length; i++) circleTriggers[i].radius = _startRadius[i];
-        foreach (var c in circleRenderers) c.enabled = false;
-        foreach (var v in visionLights) v.enabled = true;
+        foreach (var c in GameManager.instance.circleLights) c.enabled = false;
+        for (int i = 0; i < GameManager.instance.circleTriggers.Length; i++) GameManager.instance.circleTriggers[i].radius = _startRadius[i];
+        foreach (var c in GameManager.instance.circleRenderers) c.enabled = false;
+        foreach (var v in GameManager.instance.visionLights) v.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,7 +67,7 @@ public class Trap : MonoBehaviour
 
             // Liga o estado de alerta;
             _onLight = true; 
-            foreach (var t in circleTriggers) t.radius = newRadius_oMsmDaCircleLight;
+            foreach (var t in GameManager.instance.circleTriggers) t.radius = newRadius_oMsmDaCircleLight;
 
             Invoke("OffLight", duration); // Deslida o estado de alerta;
 

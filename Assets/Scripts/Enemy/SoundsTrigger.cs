@@ -75,5 +75,6 @@ public class SoundsTrigger : MonoBehaviour
         if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
 
         // Desativa a borda do inimigo quando o mouse se afastar ou estiver destraído;
-        if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius || ray.collider || _rockTransform) enemyRenderer.material.SetFloat("_OutlineSize", 0f);     }
+        if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius || ray.collider || _rockTransform) enemyRenderer.material.SetFloat("_OutlineSize", 0f);
+    }
 }

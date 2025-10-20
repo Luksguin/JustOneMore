@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Friend : MonoBehaviour
 {
-    public float weight; // Nerf de velocidade; Trocar para um GameManager futuramente;
     public AudioSource myAudioSource;
     public GameObject myCollider;
     public GameObject myRenderer;
@@ -14,7 +13,7 @@ public class Friend : MonoBehaviour
         if(collision.transform.parent.tag == "Player" && !Player.instance.isHelping) // Garante que irá carregar apenas um aliado por vez;
         {
             Player.instance.myAnimator.SetBool(Player.instance.helpingBool, true); // Atualiza a animação do Player;
-            Player.instance.speed /= weight; // Nerfa a velocidade do Player;
+            Player.instance.speed /= GameManager.instance.nerf; // Nerfa a velocidade do Player;
             Player.instance.isHelping = true;
 
             myAudioSource.Play();

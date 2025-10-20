@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public float weight; // Nerf de velocidade; Trocar para um GameManager futuramente;
     public AudioSource myAudioSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,8 +11,10 @@ public class CheckPoint : MonoBehaviour
         if (collision.tag == "Player" && Player.instance.isHelping)
         {
             Player.instance.myAnimator.SetBool(Player.instance.helpingBool, false); // Atualiza a animação do Player;
-            Player.instance.speed *= weight; // Normaliza a velocidade do Player;
+            Player.instance.speed *= GameManager.instance.nerf ; // Normaliza a velocidade do Player;
             Player.instance.isHelping = false;
+
+            GameManager.instance.missingAllies--;
 
             myAudioSource.Play();
         }
