@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5861224690307304495}
   - component: {fileID: 1500642929247743922}
   - component: {fileID: 8590921712550451835}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: PFB_CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2855459987066949be01087e17b76b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckPoint
-  weight: 2
   myAudioSource: {fileID: 1500642929247743922}
 --- !u!1 &7478649990180543806
 GameObject:
@@ -186,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6888321403770401560}
   - component: {fileID: 653701499682017149}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2768499151333553144}
   - component: {fileID: 734622431585853382}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405768854351998346}
   - component: {fileID: 4496598174905995725}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7548657712750773875}
   - component: {fileID: 3586382651177387271}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

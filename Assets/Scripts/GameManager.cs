@@ -27,11 +27,15 @@ public class GameManager : Singleton<GameManager>
     public AudioClip winAudio;
     public AudioClip gameOverAudio;
 
-    [Header("Enemies")]
+    [Header("Trap")]
     public CircleCollider2D[] circleTriggers; // Triggers de presença;
     public Light2D[] circleLights; // Luzes dos triggers de presença;
     public Light2D[] visionLights; // Luzes de visão;
     public SpriteRenderer[] circleRenderers; // Borda das luzes de presença;
+    [HideInInspector] public bool inTrap;
+
+    public float startRadius;
+    public float newRadius;
 
     private float _time; // Tempo atual do jogo;
     private bool _finish; // Variavel de controle;
@@ -40,6 +44,7 @@ public class GameManager : Singleton<GameManager>
     {
         _time = 0;
         _finish = false;
+        inTrap = false;
 
         winMenu.transform.localScale = new Vector2(0, 0);
         gameOverMenu.transform.localScale = new Vector2(0, 0);
@@ -93,10 +98,5 @@ public class GameManager : Singleton<GameManager>
     {
         Instantiate(rockPrefab, null);
         rockAmount--;
-    }
-
-    public void ChangeScene(int nextScene)
-    {
-        SceneManager.LoadScene(nextScene);
     }
 }

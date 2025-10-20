@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517705576026935749}
   - component: {fileID: 7649349882071215764}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5848988407223319148}
   - component: {fileID: 8473054770909961764}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 7671151933631678622}
   - component: {fileID: 8387408476814960710}
   - component: {fileID: 9210954841599097852}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5038,7 +5038,7 @@ GameObject:
   - component: {fileID: 7539582180936294587}
   - component: {fileID: 586815652371052413}
   - component: {fileID: 1807674856702215859}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: PFB_Fireworks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5248,14 +5248,6 @@ MonoBehaviour:
   newRadius_oMsmDaCircleLight: 2.8
   startColor: {r: 1, g: 1, b: 1, a: 0}
   endColor: {r: 1, g: 1, b: 1, a: 1}
-  circleTriggers:
-  - {fileID: 0}
-  circleLights:
-  - {fileID: 0}
-  visionLights:
-  - {fileID: 0}
-  circleRenderers:
-  - {fileID: 0}
 --- !u!1 &5324234374967341162
 GameObject:
   m_ObjectHideFlags: 0
@@ -5266,7 +5258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6111836331955396468}
   - component: {fileID: 4711314048742183436}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}

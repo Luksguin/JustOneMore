@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
 
         _DistanceX = 0;
         _DistanceY = 0;
+
+        transform.position = points[0].position; // Garante que o inimigos iniciará o jogo na posição correta;
     }
 
     private void Update()

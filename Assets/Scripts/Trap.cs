@@ -15,21 +15,11 @@ public class Trap : MonoBehaviour
     public float duration; // Duração do efeito;
     public float frequency; // Frequência da luz;
 
-    [Header("Enemies")]
-    public float newRadius_oMsmDaCircleLight; // Raio de percepção do inimigo durante o estado de alerta;
-
     // Cores da luz dos inimigos;
     public Color startColor;
     public Color endColor;
 
     private bool _onLight; // Salva se as luzes estão ligadas;
-    private List<float> _startRadius = new List<float>(); // Salva os tamanhos originais dos triggers de presença;
-
-    private void Awake()
-    {
-        // Preenche o vetor com os tamanhos oriinais;
-        for(int i = 0; i < GameManager.instance.circleTriggers.Length; i++) _startRadius.Add(GameManager.instance.circleTriggers[i].radius);
-    }
 
     private void Update()
     {
@@ -50,8 +40,10 @@ public class Trap : MonoBehaviour
     private void OffLight()
     {
         _onLight = false;
+        GameManager.instance.inTrap = false;
+
         foreach (var c in GameManager.instance.circleLights) c.enabled = false;
-        for (int i = 0; i < GameManager.instance.circleTriggers.Length; i++) GameManager.instance.circleTriggers[i].radius = _startRadius[i];
+        foreach(var c in GameManager.instance.circleTriggers) c.radius = GameManager.instance.startRadius;
         foreach (var c in GameManager.instance.circleRenderers) c.enabled = false;
         foreach (var v in GameManager.instance.visionLights) v.enabled = true;
     }
@@ -66,8 +58,10 @@ public class Trap : MonoBehaviour
             foreach(var r in myRenderers) r.DOColor(Color.gray, duration); // Muda a cor da trap para sinalizar que já foi ativada;
 
             // Liga o estado de alerta;
-            _onLight = true; 
-            foreach (var t in GameManager.instance.circleTriggers) t.radius = newRadius_oMsmDaCircleLight;
+            _onLight = true;
+            GameManager.instance.inTrap = true;
+
+            foreach (var c in GameManager.instance.circleTriggers) c.radius = GameManager.instance.newRadius;
 
             Invoke("OffLight", duration); // Deslida o estado de alerta;
 
