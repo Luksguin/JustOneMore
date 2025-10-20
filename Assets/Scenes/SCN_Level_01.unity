@@ -831,7 +831,7 @@ MonoBehaviour:
   - {fileID: 835506701}
   inTrap: 0
   startRadius: 0.8
-  newRadius: 2.8
+  newRadius: 3
 --- !u!82 &438861751
 AudioSource:
   m_ObjectHideFlags: 0
