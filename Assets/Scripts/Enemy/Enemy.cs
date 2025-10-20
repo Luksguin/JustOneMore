@@ -1,7 +1,3 @@
-using NUnit.Framework;
-using System.Collections;
-using System.Drawing;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 // Responsável por controlar os Inimigos;
@@ -162,6 +158,6 @@ public class Enemy : MonoBehaviour
         else if (_DistanceY < 0 && Mathf.Abs(_DistanceY) > Mathf.Abs(_DistanceX)) LookDown();
 
         Invoke("StopAnimations", .25f); // Para as animações do inimigo; Garante que o inimigo teve tempo de rotacionar para posição certa;
-        Invoke("GameManager.instance.GameOver", 2f);
+        GameManager.instance.GameOver();
     }
 }

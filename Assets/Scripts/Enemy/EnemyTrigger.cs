@@ -12,7 +12,7 @@ public class EnemyTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             // .. um raycast é atirado na direção dele...
-            int mask = LayerMask.GetMask("Default", "Player");
+            int mask = LayerMask.GetMask("Default", "BodyPlayer");
             RaycastHit2D ray = Physics2D.Raycast(transform.position, (Player.instance.transform.position - transform.position).normalized, 10f, mask);
 
             if(ray.collider.tag == "Player") enemy.KillPlayer(); // ... se pegar no player game over;
