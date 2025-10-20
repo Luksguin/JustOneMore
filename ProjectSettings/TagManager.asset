@@ -10,10 +10,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - EnemyVision
+  - Player
   - Water
   - UI
-  - 
+  - Arame
   - 
   - 
   - 

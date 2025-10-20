@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4895822633929905820}
   - component: {fileID: 6863900819138206753}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6119031343347834494}
   - component: {fileID: 5694364660323817609}
   - component: {fileID: 1220825095236026162}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PFB_Friend
   m_TagString: Friend
   m_Icon: {fileID: 0}
@@ -250,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f88a9454da6d6469bbae2851625ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Friend
-  playerTag: Player
   weight: 2
   myAudioSource: {fileID: 5694364660323817609}
   myCollider: {fileID: 4314110838634380440}
@@ -265,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172036601578578153}
   - component: {fileID: 4504409542530375444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

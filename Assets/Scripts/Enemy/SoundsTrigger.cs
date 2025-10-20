@@ -16,7 +16,6 @@ public class SoundsTrigger : MonoBehaviour
     private Transform _rockTransform; // Posição da distração;
     private Transform _startPosition; // Posição que o inimigo estava quando escutou a pedra;
     private bool _canBack; // Salva se o inimigo já alcanou a posição da pedra e pode voltar para posição anterior;
-    private bool _outLine; // Salvas e a borda já foi aplicada;
 
     void Awake()
     {
@@ -30,6 +29,10 @@ public class SoundsTrigger : MonoBehaviour
     {
         if(collision.tag == "Rock" && enemy.patrolling) // Garante que o inimigo só vai receber uma distração por vez;
         {
+            // Atira um raycast em direção a pedra, se tiver alguma coisa no meio: return;
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, triggerRadius);
+            if (ray.collider.tag != "Rock") return;
+
             // Atualiza as variáveis do inimigo pai para que ande até a pedra;
             enemy.patrolling = false;
             enemy.nextPoint = collision.transform;
@@ -64,18 +67,13 @@ public class SoundsTrigger : MonoBehaviour
         Vector2 mousePixel = Mouse.current.position.ReadValue();
         Vector2 mouse = Camera.main.ScreenToWorldPoint(new Vector2(mousePixel.x, mousePixel.y));
 
-        // Aplica borda no inimigo se o mouse entrar no trigger e ainda não tiver aplicado;
-        if(Vector2.Distance(mouse, enemy.transform.position) <= triggerRadius && !_outLine)
-        {
-            enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
-            _outLine = true;
-        }
+        float raySize = Vector2.Distance(mouse, transform.position); // Tamanho do raycast;
 
-        // Desativa a borda do inimigo se o mouse sair do trigger e ainda não tiver desativado;
-        if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius && _outLine)
-        {
-            enemyRenderer.material.SetFloat("_OutlineSize", 0f);
-            _outLine = false;
-        }
-    }
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize);
+
+        // Aplica borda no inimigo se o mouse estiver perto o suficiente e sem nada entre o ele e o inimigo;
+        if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
+
+        // Desativa a borda do inimigo quando o mouse se afastar ou estiver destraído;
+        if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius || ray.collider || _rockTransform) enemyRenderer.material.SetFloat("_OutlineSize", 0f);     }
 }
