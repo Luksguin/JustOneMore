@@ -30,7 +30,9 @@ public class SoundsTrigger : MonoBehaviour
         if(collision.tag == "Rock" && enemy.patrolling && !GameManager.instance.inTrap) // Garante que o inimigo só vai receber uma distração por vez;
         {
             // Atira um raycast em direção a pedra, se tiver alguma coisa no meio: return;
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, triggerRadius);
+            int mask = LayerMask.GetMask("Default", "Arame");
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, triggerRadius, mask);
+
             if (ray.collider.tag != "Rock") return;
 
             // Atualiza as variáveis do inimigo pai para que ande até a pedra;
@@ -70,7 +72,8 @@ public class SoundsTrigger : MonoBehaviour
         int mask = LayerMask.GetMask("Default", "Arame");
         float raySize = Vector2.Distance(mouse, transform.position); // Tamanho do raycast;
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize, mask);
+        print(ray.collider);
 
         // Aplica borda no inimigo se o mouse estiver perto o suficiente e sem nada entre o ele e o inimigo;
         if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider && !GameManager.instance.inTrap) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
