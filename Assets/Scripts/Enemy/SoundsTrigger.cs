@@ -67,6 +67,7 @@ public class SoundsTrigger : MonoBehaviour
         Vector2 mousePixel = Mouse.current.position.ReadValue();
         Vector2 mouse = Camera.main.ScreenToWorldPoint(new Vector2(mousePixel.x, mousePixel.y));
 
+        int mask = LayerMask.GetMask("Default", "Arame");
         float raySize = Vector2.Distance(mouse, transform.position); // Tamanho do raycast;
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize);

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Friend
   - Rock
+  - Water
+  - Sand
+  - Grass
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Arame
-  - 
-  - 
+  - Sand
+  - Grass
   - 
   - 
   - 
@@ -45,6 +48,9 @@ TagManager:
     locked: 0
   - name: Sand
     uniqueID: 2065754559
+    locked: 0
+  - name: Grass
+    uniqueID: 2570578131
     locked: 0
   - name: Water
     uniqueID: 278502039
