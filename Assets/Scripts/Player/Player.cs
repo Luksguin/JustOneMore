@@ -31,6 +31,8 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        if (!myAnimator) return;
+
         // Gerencia as animações;
         #region HORIZONTAL
         if (_xDir > 0)

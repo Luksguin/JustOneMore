@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-// Gerencia condições de vitória e derrota, trocas de cenas, controla mecânicas;
+// Gerencia condições de vitória e derrota, menus, controla mecânicas;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -55,15 +55,17 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if(missingAllies == 0 && !_finish)
+        if (_finish) return;
+        _time += Time.deltaTime;
+
+        if(missingAllies == 0)
         {
             WinGame();
             _finish = true;
         }
 
-        _time += Time.deltaTime;
 
-        if(_time > maxTime && !_finish)
+        if(_time > maxTime)
         {
             GameOver();
             _finish = true;
@@ -72,23 +74,32 @@ public class GameManager : Singleton<GameManager>
 
     public void WinGame()
     {
-        Player.instance.speed = 0; // Trava a velocidade do Player;
-        Destroy(Player.instance.myAnimator, .5f); // Trava a animação do Player;
+        // Trava o Player;
+        Player.instance.speed = 0;
+        Destroy(Player.instance.myAnimator, .5f);
 
+        // Toca audio de vitória;
         myAudioSource.clip = winAudio;
-        myAudioSource.Play();
+        myAudioSource.Play(); 
 
+        // Ativa o menu de vitória;
         winMenu.SetActive(true);
         winMenu.transform.DOScale(1f, animDuration).SetEase(animEase);
+
+        // Atualiza o progresso;
+        int level = PlayerPrefs.GetInt("Level");
+        PlayerPrefs.SetInt("Level", level + 1);
     }
 
     public void GameOver()
     {
+        // Toca audio de derrota;
         myAudioSource.clip = gameOverAudio;
         myAudioSource.Play();
 
-        Player.instance.speed = 0; // Trava a velocidade do Player;
+        Player.instance.speed = 0; // Trava o Player;
 
+        // Ativa o menu de derrota;
         gameOverMenu.SetActive(true);
         gameOverMenu.transform.DOScale(1f, animDuration).SetEase(animEase);
     }

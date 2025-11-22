@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 321057844}
   - component: {fileID: 321057846}
   - component: {fileID: 321057845}
+  - component: {fileID: 321057847}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -666,8 +667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0099792, y: 419.19577}
-  m_SizeDelta: {x: 1920, y: 161.2334}
+  m_AnchoredPosition: {x: 0.000030518, y: 419.19577}
+  m_SizeDelta: {x: 432.1097, y: 161.2334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321057845
 MonoBehaviour:
@@ -768,6 +769,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321057843}
   m_CullTransparentMesh: 1
+--- !u!114 &321057847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321057843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 321057845}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1168212878}
+        m_TargetAssemblyTypeName: LevelSelectorManager, Assembly-CSharp
+        m_MethodName: Hack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &430395103
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430395103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c89a0e1065aba84592e599e9141c827, type: 3}
   m_Name: 
@@ -862,7 +919,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 430395107}
   m_OnClick:
     m_PersistentCalls:
@@ -2057,6 +2114,7 @@ GameObject:
   - component: {fileID: 1168212876}
   - component: {fileID: 1168212877}
   - component: {fileID: 1168212875}
+  - component: {fileID: 1168212878}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2191,6 +2249,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1168212878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168212874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a3b813f2a731c45af4ffb84ddb03b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSelectorManager
+  buttons:
+  - {fileID: 190391328}
+  - {fileID: 1884670834}
+  - {fileID: 430395106}
+  - {fileID: 1772429383}
+  - {fileID: 1125132239}
+  - {fileID: 569282177}
+  - {fileID: 937990008}
+  - {fileID: 2133505032}
+  - {fileID: 1372041545}
+  - {fileID: 1822151084}
+  - {fileID: 1335122873}
+  - {fileID: 302819870}
+  animations:
+  - {fileID: 190391327}
+  - {fileID: 1884670837}
+  - {fileID: 430395105}
+  - {fileID: 1772429382}
+  - {fileID: 1125132238}
+  - {fileID: 569282176}
+  - {fileID: 937990007}
+  - {fileID: 2133505031}
+  - {fileID: 1372041544}
+  - {fileID: 1822151083}
+  - {fileID: 1335122872}
+  - {fileID: 302819869}
 --- !u!1 &1262389822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3904,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1884670835}
   m_OnClick:
     m_PersistentCalls:
@@ -3870,7 +3966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884670832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c89a0e1065aba84592e599e9141c827, type: 3}
   m_Name: 
