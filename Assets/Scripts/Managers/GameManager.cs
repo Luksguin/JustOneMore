@@ -3,14 +3,20 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using TMPro;
 
 // Gerencia condições de vitória e derrota, menus, controla mecânicas;
 
 public class GameManager : Singleton<GameManager>
 {
-    public int missingAllies; // Quantidade de aliados restantes;
+    public int leftFriends; // Quantidade de aliados restantes;
     public float nerf; // Nerf de velocidade quando estiver carregando um aliado ou estiver na água;
-    public float maxTime;
+    public float time; // Tempo para finalizar o jogo;
+
+    [Header("UI")]
+    public TextMeshProUGUI timerUI;
+    public TextMeshProUGUI leftFriendsUI;
+    public TextMeshProUGUI rockAmountUI;
 
     [Header("Rock")]
     public int rockAmount;
@@ -19,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Menus")]
     public GameObject winMenu;
     public GameObject gameOverMenu;
+    public GameObject playerUI;
     public float animDuration;
     public Ease animEase;
 
@@ -37,12 +44,10 @@ public class GameManager : Singleton<GameManager>
     public float startRadius;
     public float newRadius;
 
-    private float _time; // Tempo atual do jogo;
     private bool _finish; // Variavel de controle;
 
     private void Start()
     {
-        _time = 0;
         _finish = false;
         inTrap = false;
 
@@ -55,17 +60,21 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (_finish) return;
-        _time += Time.deltaTime;
+        // Atualiza UIs;
+        timerUI.text = "0" + ((int)time / 60) + ":" + ((int)time % 60);
+        leftFriendsUI.text = "x" + leftFriends;
+        rockAmountUI.text = "x" + rockAmount;
 
-        if(missingAllies == 0)
+        if (_finish) return;
+        time -= Time.deltaTime;
+
+        if(leftFriends == 0)
         {
             WinGame();
             _finish = true;
         }
 
-
-        if(_time > maxTime)
+        if(time <= 0)
         {
             GameOver();
             _finish = true;
@@ -80,7 +89,9 @@ public class GameManager : Singleton<GameManager>
 
         // Toca audio de vitória;
         myAudioSource.clip = winAudio;
-        myAudioSource.Play(); 
+        myAudioSource.Play();
+
+        playerUI.SetActive(false); // Desativa UI;
 
         // Ativa o menu de vitória;
         winMenu.SetActive(true);
@@ -98,6 +109,8 @@ public class GameManager : Singleton<GameManager>
         myAudioSource.Play();
 
         Player.instance.speed = 0; // Trava o Player;
+
+        playerUI.SetActive(false); // Desativa UI;
 
         // Ativa o menu de derrota;
         gameOverMenu.SetActive(true);

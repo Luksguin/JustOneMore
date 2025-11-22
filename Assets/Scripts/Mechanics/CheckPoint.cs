@@ -14,7 +14,7 @@ public class CheckPoint : MonoBehaviour
             Player.instance.speed *= GameManager.instance.nerf ; // Normaliza a velocidade do Player;
             Player.instance.isHelping = false;
 
-            GameManager.instance.missingAllies--;
+            GameManager.instance.leftFriends--;
 
             myAudioSource.Play();
         }
