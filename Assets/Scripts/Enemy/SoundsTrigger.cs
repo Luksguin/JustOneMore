@@ -73,7 +73,6 @@ public class SoundsTrigger : MonoBehaviour
         float raySize = Vector2.Distance(mouse, transform.position); // Tamanho do raycast;
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize, mask);
-        print(ray.collider);
 
         // Aplica borda no inimigo se o mouse estiver perto o suficiente e sem nada entre o ele e o inimigo;
         if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider && !GameManager.instance.inTrap) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);

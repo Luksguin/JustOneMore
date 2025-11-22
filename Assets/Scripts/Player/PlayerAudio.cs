@@ -27,7 +27,8 @@ public class PlayerAudio : MonoBehaviour
         RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.down, 1f, mask);
         //Debug.DrawRay(transform.position, Vector2.down * 1);
 
-        _currentTilemap = ray.transform.tag;
+        if (!ray.transform) _currentTilemap = "Sand";
+        else _currentTilemap = ray.transform.tag;
     }
 
     // Chamada por evento nas animações;

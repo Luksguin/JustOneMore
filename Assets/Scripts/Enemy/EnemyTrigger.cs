@@ -8,6 +8,7 @@ public class EnemyTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        print(collision.tag);
         // Enquanto o player estiver dentro da colisão...
         if (collision.tag == "Player")
         {
