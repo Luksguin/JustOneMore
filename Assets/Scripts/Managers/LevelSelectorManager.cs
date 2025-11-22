@@ -22,9 +22,7 @@ public class LevelSelectorManager : MonoBehaviour
     // Libera todas as fases;
     public void Hack()
     {
-        for (int i = 0; i < 12; i++)
-        {
-            buttons[i].interactable = true;
-        }
+        foreach(var b in buttons) b.interactable = true;
+        foreach (var a in animations) a.enabled = true;
     }
 }

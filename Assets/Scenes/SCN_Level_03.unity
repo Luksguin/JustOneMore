@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &40916406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1551057644413352992, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+  m_PrefabInstance: {fileID: 151742487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &120220987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,6 +267,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1551057644413352992, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_fontSize
+      value: 41.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551057644413352992, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2316961797530990209, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5251,9 +5270,13 @@ MonoBehaviour:
   leftFriends: 2
   nerf: 2
   time: 90
-  timerUI: {fileID: 0}
+  timerUI: {fileID: 1126500942}
   leftFriendsUI: {fileID: 1984103228}
   rockAmountUI: {fileID: 2022124009}
+  messageUI: {fileID: 40916406}
+  trapMessage: Cuidado! Inimigos em alerta!
+  friendMessage: '"SENHOR, me ajude a salvar mais um!"'
+  timeMessage: '"Estou ficando sem tempo!"'
   rockAmount: 5
   rockPrefab: {fileID: 4391761931805958817, guid: c7802d649e0e06e47a7f0970e5b0604f, type: 3}
   winMenu: {fileID: 1215629988}
@@ -6273,6 +6296,17 @@ Transform:
   - {fileID: 986101796}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126500942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 452326099112216385, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+  m_PrefabInstance: {fileID: 151742487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1151798272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 737428963620117345, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}

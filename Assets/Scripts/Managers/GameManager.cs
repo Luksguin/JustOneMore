@@ -17,6 +17,10 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI timerUI;
     public TextMeshProUGUI leftFriendsUI;
     public TextMeshProUGUI rockAmountUI;
+    public TextMeshProUGUI messageUI;
+    public string trapMessage;
+    public string friendMessage;
+    public string timeMessage;
 
     [Header("Rock")]
     public int rockAmount;
@@ -44,10 +48,13 @@ public class GameManager : Singleton<GameManager>
     public float startRadius;
     public float newRadius;
 
-    private bool _finish; // Variavel de controle;
+    private bool _finish; // Variável de controle;
+    private string _messageDefault; // Guarda o texto padrão;
 
     private void Start()
     {
+        _messageDefault = messageUI.text;
+
         _finish = false;
         inTrap = false;
 
@@ -61,9 +68,30 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         // Atualiza UIs;
-        timerUI.text = "0" + ((int)time / 60) + ":" + ((int)time % 60);
+        timerUI.text = ((int)time / 60).ToString("00") + ":" + ((int)time % 60).ToString("00");
         leftFriendsUI.text = "x" + leftFriends;
         rockAmountUI.text = "x" + rockAmount;
+
+        if (inTrap)
+        {
+            messageUI.text = trapMessage;
+            messageUI.color = Color.red;
+        } 
+        else if (time <= 15)
+        {
+            messageUI.text = timeMessage;
+            messageUI.color = Color.red;
+        }
+        else if (leftFriends == 1)
+        {
+            messageUI.text = friendMessage;
+            messageUI.color = Color.green;
+        }
+        else
+        {
+            messageUI.text = _messageDefault;
+            messageUI.color = Color.white;
+        }
 
         if (_finish) return;
         time -= Time.deltaTime;
