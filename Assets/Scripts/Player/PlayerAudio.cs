@@ -38,35 +38,28 @@ public class PlayerAudio : MonoBehaviour
     {
         if (_currentTilemap == "Sand")
         {
-            if (_delay > 1)
+            if (_delay > -1)
             {
-                RandomAudioSand();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioSand());
                 _delay = 0;
             }
         }
         else if (_currentTilemap == "Grass")
         {
-            if (_delay > 2)
+            if (_delay > -2)
             {
-                RandomAudioGrass();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioGrass());
                 _delay = 0;
             }
         }
         else if (_currentTilemap == "Water")
         {
-            if (_delay > 3)
+            if (_delay > 1)
             {
-                RandomAudioWater();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioWater());
                 _delay = 0;
             }
         }
-
         _delay++;
     }
 
@@ -79,9 +72,7 @@ public class PlayerAudio : MonoBehaviour
         {
             if (_delay > 0)
             {
-                RandomAudioHelpingSand();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioHelpingSand());
                 _delay = 0;
             }
         }
@@ -89,9 +80,7 @@ public class PlayerAudio : MonoBehaviour
         {
             if (_delay > 0)
             {
-                RandomAudioHelpingGrass();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioHelpingGrass());
                 _delay = 0;
             }
         }
@@ -99,46 +88,43 @@ public class PlayerAudio : MonoBehaviour
         {
             if (_delay > 1)
             {
-                RandomAudioHelpingWater();
-                audioSource.Play();
-
+                audioSource.PlayOneShot(RandomAudioHelpingWater());
                 _delay = 0;
             }
         }
-
         _delay++;
     }
 
-    #region AUX FUNCTIONS
+    #region RANDOM FUNCTIONS
     // Aleatoriza os aúdios das listas;
-    private void RandomAudioSand()
+    private AudioClip RandomAudioSand()
     {
-        audioSource.clip = audiosWalkSand[Random.Range(0, audiosWalkSand.Count)];
+        return audiosWalkSand[Random.Range(0, audiosWalkSand.Count)];
     }
 
-    private void RandomAudioHelpingSand()
+    private AudioClip RandomAudioHelpingSand()
     {
-        audioSource.clip = audiosHelpingSand[Random.Range(0, audiosHelpingSand.Count)];
+        return audiosHelpingSand[Random.Range(0, audiosHelpingSand.Count)];
     }
 
-    private void RandomAudioGrass()
+    private AudioClip RandomAudioGrass()
     {
-        audioSource.clip = audiosWalkGrass[Random.Range(0, audiosWalkGrass.Count)];
+        return audiosWalkGrass[Random.Range(0, audiosWalkGrass.Count)];
     }
 
-    private void RandomAudioHelpingGrass()
+    private AudioClip RandomAudioHelpingGrass()
     {
-        audioSource.clip = audiosHelpingGrass[Random.Range(0, audiosHelpingGrass.Count)];
+        return audiosHelpingGrass[Random.Range(0, audiosHelpingGrass.Count)];
     }
 
-    private void RandomAudioWater()
+    private AudioClip RandomAudioWater()
     {
-        audioSource.clip = audiosWalkWater[Random.Range(0, audiosWalkWater.Count)];
+        return audiosWalkWater[Random.Range(0, audiosWalkWater.Count)];
     }
 
-    private void RandomAudioHelpingWater()
+    private AudioClip RandomAudioHelpingWater()
     {
-        audioSource.clip = audiosHelpingWater[Random.Range(0, audiosHelpingWater.Count)];
+        return audiosHelpingWater[Random.Range(0, audiosHelpingWater.Count)];
     }
     #endregion
 }

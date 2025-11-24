@@ -10,7 +10,8 @@ using TMPro;
 public class GameManager : Singleton<GameManager>
 {
     public int leftFriends; // Quantidade de aliados restantes;
-    public float nerf; // Nerf de velocidade quando estiver carregando um aliado ou estiver na água;
+    public float nerfFriend; // Nerf de velocidade quando estiver carregando um aliado;
+    public float nerfWater; // Nerf de velocidade quando estiver na água;
     public float time; // Tempo para finalizar o jogo;
 
     [Header("UI")]
