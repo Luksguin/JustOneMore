@@ -24,7 +24,7 @@ public class ManagerScene : MonoBehaviour
     {
         transitionImage.gameObject.SetActive(true);
         transitionImage.DOColor(new Color(0f, 0f, 0f, 1f), duration);
-        myAudioSource.Play();
+        if(myAudioSource) myAudioSource.Play();
 
         yield return new WaitForSeconds(duration + 2f);
 
