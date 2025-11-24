@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SCN_Story.unity
     guid: 13d16fe1a894311409647017566c7987
   - enabled: 1
-    path: Assets/Scenes/SCN_Tutorial.unity
-    guid: 484b3d90b84c34b478ac45265837bec1
-  - enabled: 1
     path: Assets/Scenes/SCN_LevelSelector.unity
     guid: 7def193edd3d6664ca79d476416e1833
   - enabled: 1

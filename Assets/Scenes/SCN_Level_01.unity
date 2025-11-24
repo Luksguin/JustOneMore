@@ -202,6 +202,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2595656739896010641, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
   m_PrefabInstance: {fileID: 5361006685173506367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &195244277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4121140134105570166, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+  m_PrefabInstance: {fileID: 5361006685173506367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &438861749
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   leftFriends: 1
-  nerf: 2
+  nerfFriend: 2
+  nerfWater: 3
   time: 30
   timerUI: {fileID: 628681662}
   leftFriendsUI: {fileID: 581231056}
@@ -389,9 +401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3bd484ba666d241a87c68f8cec8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
-  transitionImage: {fileID: 0}
-  duration: 0
+  transitionImage: {fileID: 195244277}
+  duration: 4
   myAudioSource: {fileID: 0}
+  startTransition: 1
 --- !u!82 &438861754
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38226,10 +38239,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 438861753}
+    - target: {fileID: 2316961797530990209, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4263952946849467518, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 438861753}
+    - target: {fileID: 4263952946849467518, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683720153878115346, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_text
+      value: Level 01
+      objectReference: {fileID: 0}
     - target: {fileID: 4746496358278192865, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_Name
       value: PFB_Canvas
@@ -38322,6 +38347,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 438861753}
+    - target: {fileID: 7204479956670564244, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7758261339845448991, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -38351,8 +38380,8 @@ SceneRoots:
   - {fileID: 1067073580}
   - {fileID: 932004983711469826}
   - {fileID: 2713444204082425752}
+  - {fileID: 1104418102}
   - {fileID: 1868916460}
   - {fileID: 5361006685173506367}
   - {fileID: 2051132355}
   - {fileID: 438861752}
-  - {fileID: 1104418102}

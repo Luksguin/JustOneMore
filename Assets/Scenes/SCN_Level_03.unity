@@ -396,6 +396,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+--- !u!114 &151742488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4121140134105570166, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+  m_PrefabInstance: {fileID: 151742487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &164027731
 GameObject:
   m_ObjectHideFlags: 0
@@ -5268,7 +5279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   leftFriends: 2
-  nerf: 2
+  nerfFriend: 2
+  nerfWater: 3
   time: 90
   timerUI: {fileID: 1126500942}
   leftFriendsUI: {fileID: 1984103228}
@@ -5314,9 +5326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3bd484ba666d241a87c68f8cec8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
-  transitionImage: {fileID: 0}
-  duration: 0
+  transitionImage: {fileID: 151742488}
+  duration: 4
   myAudioSource: {fileID: 0}
+  startTransition: 1
 --- !u!82 &725237940
 AudioSource:
   m_ObjectHideFlags: 0

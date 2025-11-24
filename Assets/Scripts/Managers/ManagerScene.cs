@@ -13,20 +13,38 @@ public class ManagerScene : MonoBehaviour
 
     public AudioSource myAudioSource;
 
+    public bool startTransition;
+
+    private void Start()
+    {
+        if (startTransition) StartCoroutine(StartTransitionCoroutine());
+    }
+
+    IEnumerator StartTransitionCoroutine()
+    {
+        transitionImage.gameObject.SetActive(true);
+        transitionImage.DOColor(new Color(0f, 0f, 0f, 0f), duration);
+
+        yield return new WaitForSeconds(duration);
+
+        transitionImage.gameObject.SetActive(false);
+    }
+
     public void ChangeScene(int nextScene)
     {
-        if(transitionImage)StartCoroutine(TransitionCoroutine(nextScene));
+        if(transitionImage)StartCoroutine(EndTransitionCoroutine(nextScene));
         else SceneManager.LoadScene(nextScene);
     }
 
     // Transição entre cenas;
-    IEnumerator TransitionCoroutine(int nextScene)
+    IEnumerator EndTransitionCoroutine(int nextScene)
     {
         transitionImage.gameObject.SetActive(true);
         transitionImage.DOColor(new Color(0f, 0f, 0f, 1f), duration);
+
         if(myAudioSource) myAudioSource.Play();
 
-        yield return new WaitForSeconds(duration + 2f);
+        yield return new WaitForSeconds(duration);
 
         SceneManager.LoadScene(nextScene);
     }

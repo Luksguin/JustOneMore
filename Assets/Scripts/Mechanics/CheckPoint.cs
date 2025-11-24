@@ -11,7 +11,7 @@ public class CheckPoint : MonoBehaviour
         if (collision.tag == "Player" && Player.instance.isHelping)
         {
             Player.instance.myAnimator.SetBool(Player.instance.helpingBool, false); // Atualiza a animação do Player;
-            Player.instance.speed *= GameManager.instance.nerf ; // Normaliza a velocidade do Player;
+            Player.instance.speed *= GameManager.instance.nerfFriend ; // Normaliza a velocidade do Player;
             Player.instance.isHelping = false;
 
             GameManager.instance.leftFriends--;
