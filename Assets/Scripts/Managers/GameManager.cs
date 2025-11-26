@@ -113,8 +113,8 @@ public class GameManager : Singleton<GameManager>
     public void WinGame()
     {
         // Trava o Player;
+        Player.instance.canMove = false;
         Player.instance.speed = 0;
-        Destroy(Player.instance.myAnimator, .5f);
 
         // Toca audio de vitória;
         myAudioSource.clip = winAudio;
@@ -137,7 +137,8 @@ public class GameManager : Singleton<GameManager>
         myAudioSource.clip = gameOverAudio;
         myAudioSource.Play();
 
-        Player.instance.speed = 0; // Trava o Player;
+        Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true); // Atualiza a animação do Player;
+        Player.instance.speed = 0; // Trava a velocidade do Player;
 
         playerUI.SetActive(false); // Desativa UI;
 

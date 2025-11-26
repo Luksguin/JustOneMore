@@ -710,10 +710,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 321057844}
+  - component: {fileID: 321057849}
   - component: {fileID: 321057846}
   - component: {fileID: 321057845}
   - component: {fileID: 321057848}
-  - component: {fileID: 321057849}
   m_Layer: 5
   m_Name: Text / GameManager
   m_TagString: Untagged
@@ -897,7 +897,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 1650776179}
-  duration: 2
+  startTransitionDuration: 2
+  endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 1
 --- !u!1 &583905951

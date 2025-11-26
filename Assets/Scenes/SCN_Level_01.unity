@@ -170,7 +170,7 @@ MonoBehaviour:
   leftFriends: 1
   nerfFriend: 2
   nerfWater: 3
-  time: 300
+  time: 35
   timerUI: {fileID: 628681662}
   leftFriendsUI: {fileID: 581231056}
   rockAmountUI: {fileID: 1410370762}
@@ -183,8 +183,8 @@ MonoBehaviour:
   winMenu: {fileID: 141561577}
   gameOverMenu: {fileID: 841988805}
   playerUI: {fileID: 1028736513}
-  animDuration: 1.2
-  animEase: 30
+  animDuration: 0.5
+  animEase: 1
   myAudioSource: {fileID: 438861751}
   winAudio: {fileID: 8300000, guid: a4507de6df33f0a4bb314e135e16bb55, type: 3}
   gameOverAudio: {fileID: 8300000, guid: 94954852491988d419bf69d7d680927d, type: 3}
@@ -324,7 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 195244277}
-  duration: 3
+  delay: 3
+  startTransitionDuration: 4
+  endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 1
 --- !u!82 &438861754
@@ -37767,6 +37769,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 645190537676192003, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 438861753}
+    - target: {fileID: 645190537676192003, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 737428963620117345, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054719773121286979, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_text
+      value: "\"Livra os que estao sendo levados para a morte e salva os que cambaleiam
+        indo para serem mortos.\"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  c\u2014 Proverbios
+        24:11"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235918787687734922, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2316961797530990209, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -37774,6 +37798,31 @@ PrefabInstance:
     - target: {fileID: 2316961797530990209, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595656739896010641, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840107653181092552, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840107653181092552, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840107653181092552, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840107653181092552, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217651868014277206, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_text
+      value: "\"Porque sete vezes caira o justo, e se levantara.\" \n\t\t\t\t\t\t  
+        \u2014 Proverbios 24:16"
       objectReference: {fileID: 0}
     - target: {fileID: 4263952946849467518, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -37790,6 +37839,14 @@ PrefabInstance:
     - target: {fileID: 4746496358278192865, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_Name
       value: PFB_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205302666524255159, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 226.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205302666524255159, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.8701
       objectReference: {fileID: 0}
     - target: {fileID: 5205792697474280385, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_Pivot.x
@@ -37875,6 +37932,38 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 438861753}
+    - target: {fileID: 6213040163861009766, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213040163861009766, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213040163861009766, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213040163861009766, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323995959282957997, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323995959282957997, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323995959282957997, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323995959282957997, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7204479956670564244, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -37887,6 +37976,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 438861753}
+    - target: {fileID: 7807554296834262037, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807554296834262037, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807554296834262037, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807554296834262037, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396846357619562385, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 438861753}
+    - target: {fileID: 8396846357619562385, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902166583519466580, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902166583519466580, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902166583519466580, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902166583519466580, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

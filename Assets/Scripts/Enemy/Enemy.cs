@@ -147,8 +147,6 @@ public class Enemy : MonoBehaviour
     public void KillPlayer()
     {
         _lookAtPlayer = true; // Usado para travar os movimentos do inimigo;
-        Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true); // Atualiza a animação do Player;
-        Player.instance.speed = 0; // Trava a velocidade do Player;
 
         // Calcula a distância para o Player e olha para o lugar certo;
         _DistanceX = Player.instance.transform.position.x - transform.position.x;

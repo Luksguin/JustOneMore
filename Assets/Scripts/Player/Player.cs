@@ -25,14 +25,18 @@ public class Player : Singleton<Player>
 
     [HideInInspector] public bool isHelping; // Salva se o player está ajudando algum aliado; Deve ser public para acessar em "Friend";
     [HideInInspector] public Vector2 lastClick; // Armazena a posição do click; Deve ser public para acessar em "Rock";
+    [HideInInspector] public bool canMove;
 
     private float _xDir;
     private float _yDir;
 
+    private void Start()
+    {
+        canMove = false;
+    }
+
     private void Update()
     {
-        if (!myAnimator) return;
-
         // Gerencia as animações;
         #region HORIZONTAL
         if (_xDir > 0)
@@ -49,7 +53,7 @@ public class Player : Singleton<Player>
             myAnimator.SetBool(boolRightWalk, false);
         }
 
-        if (_xDir == 0)
+        if (_xDir == 0 || !canMove)
         {
             myAnimator.SetBool(boolRightWalk, false);
             myAnimator.SetBool(boolLeftWalk, false);
@@ -71,7 +75,7 @@ public class Player : Singleton<Player>
             myAnimator.SetBool(boolUpWalk, false);
         }
 
-        if (_yDir == 0)
+        if (_yDir == 0 || !canMove)
         {
             myAnimator.SetBool(boolUpWalk, false);
             myAnimator.SetBool(boolDownWalk, false);
@@ -81,7 +85,7 @@ public class Player : Singleton<Player>
 
     private void FixedUpdate()
     {
-        Movement();
+        if(canMove) Movement();
     }
 
     #region MOVEMENT

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Friend : MonoBehaviour
 {
     public AudioSource myAudioSource;
+
     public GameObject myCollider;
     public GameObject myRenderer;
 

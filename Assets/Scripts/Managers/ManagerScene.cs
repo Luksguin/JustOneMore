@@ -9,7 +9,9 @@ using System.Collections;
 public class ManagerScene : MonoBehaviour
 {
     public Image transitionImage;
-    public float duration;
+    public float delay;
+    public float startTransitionDuration;
+    public float endTransitionDuration;
 
     public AudioSource myAudioSource;
 
@@ -23,10 +25,14 @@ public class ManagerScene : MonoBehaviour
     IEnumerator StartTransitionCoroutine()
     {
         transitionImage.gameObject.SetActive(true);
-        transitionImage.DOColor(new Color(0f, 0f, 0f, 0f), duration);
 
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(delay);
 
+        transitionImage.DOColor(new Color(0f, 0f, 0f, 0f), startTransitionDuration);
+
+        yield return new WaitForSeconds(startTransitionDuration - 3);
+
+        if(Player.instance) Player.instance.canMove = true;
         transitionImage.gameObject.SetActive(false);
     }
 
@@ -40,11 +46,11 @@ public class ManagerScene : MonoBehaviour
     IEnumerator EndTransitionCoroutine(int nextScene)
     {
         transitionImage.gameObject.SetActive(true);
-        transitionImage.DOColor(new Color(0f, 0f, 0f, 1f), duration);
+        transitionImage.DOColor(new Color(0f, 0f, 0f, 1f), endTransitionDuration);
 
         if(myAudioSource) myAudioSource.Play();
 
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(endTransitionDuration);
 
         SceneManager.LoadScene(nextScene);
     }

@@ -799,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MUSIC
+  m_text: AMBIENTE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4cf79ee9694e4986e9004d63e2cb8, type: 2}
   m_sharedMaterial: {fileID: -5528761171151685031, guid: e5f4cf79ee9694e4986e9004d63e2cb8, type: 2}
@@ -2243,7 +2243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 1605127679}
-  duration: 2
+  startTransitionDuration: 0
+  endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 0
 --- !u!4 &1593890914
