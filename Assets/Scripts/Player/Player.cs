@@ -33,6 +33,8 @@ public class Player : Singleton<Player>
     private void Start()
     {
         canMove = false;
+
+        if(BackgroundMusic.instance) BackgroundMusic.instance.StopMusic();
     }
 
     private void Update()
