@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         _DistanceX = point.position.x - transform.position.x;
         _DistanceY = point.position.y - transform.position.y;
 
-        transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime); // Movimentação
+        transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime); // Movimentação;
     }
     #endregion
 

@@ -10,6 +10,7 @@ TagManager:
   - Sand
   - Grass
   - FootPlayer
+  - Sniper
   layers:
   - Default
   - TransparentFX
