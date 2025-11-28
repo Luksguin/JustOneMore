@@ -15,7 +15,7 @@ public class EnemyTrigger : MonoBehaviour
             int mask = LayerMask.GetMask("Default", "BodyPlayer");
             RaycastHit2D ray = Physics2D.Raycast(transform.position, (Player.instance.transform.position - transform.position).normalized, 100f, mask);
 
-            if (ray.collider.tag == "Player")
+            if (ray.collider.tag == "Player" || ray.collider.tag == "FootPlayer")
             {
                 if(enemy) enemy.FindPlayer(); // ... se pegar no player game over;
                 GameManager.instance.GameOver();

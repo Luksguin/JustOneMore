@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002084557533776142}
   - component: {fileID: 7249628528804007226}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00019999966, y: -10.0001, z: 0}
-    m_Extent: {x: 0.1004, y: 10.000899, z: 0}
+    m_Center: {x: -0.00019999966, y: -50.0001, z: 0}
+    m_Extent: {x: 0.1004, y: 50.0009, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.1, y: -20, z: 0}
-  - {x: 0.1, y: -20, z: 0}
+  - {x: -0.1, y: -100, z: 0}
+  - {x: 0.1, y: -100, z: 0}
   - {x: 0.1, y: 0, z: 0}
   - {x: -0.099999994, y: 0, z: 0}
 --- !u!1 &5214854182098998537
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6829957549435642937}
   - component: {fileID: 8387385859810299809}
   - component: {fileID: 5323288654550401530}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: VisionTrigger
   m_TagString: Sniper
   m_Icon: {fileID: 0}
@@ -166,8 +166,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.1, y: 0}
-      - {x: -0.1, y: -20}
-      - {x: 0.1, y: -20}
+      - {x: -0.1, y: -100}
+      - {x: 0.1, y: -100}
       - {x: 0.1, y: 0}
   m_UseDelaunayMesh: 0
 --- !u!114 &8387385859810299809

@@ -377,6 +377,7 @@ MonoBehaviour:
   boolRightWalk: RightWalk
   isHelping: 0
   lastClick: {x: 0, y: 0}
+  canMove: 0
 --- !u!114 &2366754548086606433
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -170,7 +170,7 @@ MonoBehaviour:
   leftFriends: 1
   nerfFriend: 2
   nerfWater: 3
-  time: 35
+  time: 30
   timerUI: {fileID: 628681662}
   leftFriendsUI: {fileID: 581231056}
   rockAmountUI: {fileID: 1410370762}
@@ -195,7 +195,7 @@ MonoBehaviour:
   visionLights:
   - {fileID: 1139122165}
   circleRenderers:
-  - {fileID: 1430454405}
+  - {fileID: 0}
   inTrap: 0
   startRadius: 0.8
   newRadius: 3
@@ -33383,11 +33383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
---- !u!212 &1430454405 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7858758676743502610, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
-  m_PrefabInstance: {fileID: 1104418102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!58 &1430454406 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 209493364362547486, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
@@ -37788,7 +37783,7 @@ PrefabInstance:
     - target: {fileID: 2054719773121286979, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
       propertyPath: m_text
       value: "\"Livra os que estao sendo levados para a morte e salva os que cambaleiam
-        indo para serem mortos.\"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  c\u2014 Proverbios
+        indo para serem mortos.\"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \u2014 Proverbios
         24:11"
       objectReference: {fileID: 0}
     - target: {fileID: 2235918787687734922, guid: 04b8e36660038024eb9981b6ddd16f40, type: 3}
