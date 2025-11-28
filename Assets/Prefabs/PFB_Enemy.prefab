@@ -173,6 +173,7 @@ MonoBehaviour:
   boolRightWalk: RigthBool
   nextPoint: {fileID: 0}
   patrolling: 0
+  stopWalk: 0
 --- !u!1 &2507640950447350459
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +472,7 @@ MonoBehaviour:
   enemy: {fileID: 7402639761533773562}
   enemyRenderer: {fileID: 4458127594359406342}
   triggerRadius: 4
+  time: 4
   colorOutline: {r: 1, g: 1, b: 1, a: 1}
   sizeOutLine: 1
 --- !u!1 &5491288872016310798

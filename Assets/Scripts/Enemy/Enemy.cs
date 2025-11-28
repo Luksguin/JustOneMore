@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public Transform nextPoint; // Salva para onde o inimigo está caminhando; Deve ser public para acessar em "SoundsTrigger";
     [HideInInspector] public bool patrolling; // Salva se o inimigo está patrulhando ou destraído; Deve se public para acessar em "SoundsTrigger";
+    [HideInInspector] public bool stopWalk; // Proíbe o inimigo de caminhar quando se torna true;
 
     private int _nextIndex; // Salva o index do próximo ponto de patrulha no qual o inimigo está indo;
-    private bool _lookAtPlayer; // Proíbe o inimigo de caminhar quando se torna true; Se torna true apenas no game over;
 
     // Salvem a distância do inimigo em relação ao ponto no qual está indo em X e Y;
     private float _DistanceX;
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         patrolling = true;
 
         _nextIndex = 0;
-        _lookAtPlayer = false;
+        stopWalk = false;
 
         _DistanceX = 0;
         _DistanceY = 0;
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(_lookAtPlayer == true) return; // Proíbe o Player de mudar direção da visão;
+        if(stopWalk == true) return; // Proíbe o Player de mudar direção da visão;
 
         // Faz o inimigo olhar para direção que faz mais sentido;
         if (_DistanceX >= 0 && Mathf.Abs(_DistanceX) > Mathf.Abs(_DistanceY)) LookRigth();
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!_lookAtPlayer)WalkManager(); // Se não estiver no game over anda um pouco a cada frame;
+        if(!stopWalk)WalkManager(); // Se não estiver no game over anda um pouco a cada frame;
     }
 
     #region WALK
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         if (_nextIndex >= points.Length) _nextIndex = 0; // Caso tenha finalizado todos os pontos, volta para o início;
 
-        if(patrolling) nextPoint = points[_nextIndex]; // Garante que o inimigo vá ao ponto erto quando estiver em patrulha;
+        if(patrolling) nextPoint = points[_nextIndex]; // Garante que o inimigo vá ao ponto certo quando estiver em patrulha;
 
         // Enquanto estiver longe do próximo ponto, vá em sua direção;
         if(Vector2.Distance(transform.position, nextPoint.position) > 0)
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
     }
     #endregion
 
-    #region Animations
+    #region ANIMATIONS
     // Controla as Animações e rotação;
     private void LookUp()
     {
@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
         vision.rotation = Quaternion.Euler(0, 0, 90);
     }
 
-    private void StopAnimations()
+    public void StopAnimations()
     {
         myAnimator.SetBool(boolUpWalk, false);
         myAnimator.SetBool(boolDownWalk, false);
@@ -144,9 +144,9 @@ public class Enemy : MonoBehaviour
 
     // Aborda o Player quando encontrá-lo;
     // Chamada pelo "EnemyTrigger";
-    public void KillPlayer()
+    public void FindPlayer()
     {
-        _lookAtPlayer = true; // Usado para travar os movimentos do inimigo;
+        stopWalk = true; // Usado para travar os movimentos do inimigo;
 
         // Calcula a distância para o Player e olha para o lugar certo;
         _DistanceX = Player.instance.transform.position.x - transform.position.x;
@@ -158,6 +158,5 @@ public class Enemy : MonoBehaviour
         else if (_DistanceY < 0 && Mathf.Abs(_DistanceY) > Mathf.Abs(_DistanceX)) LookDown();
 
         Invoke("StopAnimations", .25f); // Para as animações do inimigo; Garante que o inimigo teve tempo de rotacionar para posição certa;
-        GameManager.instance.GameOver();
     }
 }

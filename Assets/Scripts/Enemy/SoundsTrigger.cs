@@ -9,13 +9,14 @@ public class SoundsTrigger : MonoBehaviour
     public SpriteRenderer enemyRenderer; // Renderer do inimigo pai;
 
     public float triggerRadius; //Tamanho do trigger;
+    public float time; // Tempo que o inimigo fica destraído na pedra;
 
     public Color colorOutline; // Cor da borda;
     public float sizeOutLine; // Tamanho da borda;
 
     private Transform _rockTransform; // Posição da distração;
     private Transform _startPosition; // Posição que o inimigo estava quando escutou a pedra;
-    private bool _canBack; // Salva se o inimigo já alcanou a posição da pedra e pode voltar para posição anterior;
+    private bool _canBack; // Salva se o inimigo já alcançou a posição da pedra e pode voltar para posição anterior;
 
     void Awake()
     {
@@ -38,6 +39,7 @@ public class SoundsTrigger : MonoBehaviour
             // Atualiza as variáveis do inimigo pai para que ande até a pedra;
             enemy.patrolling = false;
             enemy.nextPoint = collision.transform;
+            _canBack = false;
 
             // Atualiza os pontos que o player vai em direção;
             _startPosition.position = enemy.transform.position;
@@ -47,19 +49,23 @@ public class SoundsTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (_rockTransform) // Será diferente de nulo apenas se escutar alguma pedra;
+        if (_rockTransform) // True quando escutar alguma pedra;
         {
             // Entra se alcançar a posição da pedra;
             if (Vector2.Distance(enemy.transform.position, _rockTransform.position) <= 0)
             {
-                enemy.nextPoint = _startPosition.transform; // Passa a posição anterior para o "WalkManager";
-                _canBack = true; // Pronto para retornar para a posição anterior;
+                // Para o inimigo por um tempo;
+                enemy.stopWalk = true;
+                enemy.StopAnimations();
+
+                Invoke("CanBack", time);
             }
+
 
             // Entra se alcançar a posição anterior;
             if (Vector2.Distance(enemy.transform.position, _startPosition.position) <= 0 && _canBack)
             {
-                enemy.patrolling = true; // Permite que o inimigo volte a patrulha pelos pontos de patrulha;
+                enemy.patrolling = true; // Permite que o inimigo volte a patrulhar pelos pontos de patrulha;
                 _rockTransform = null; // Não há pedras por perto;
                 _canBack = false; // Reset na variável de controle;
             }
@@ -79,5 +85,12 @@ public class SoundsTrigger : MonoBehaviour
 
         // Desativa a borda do inimigo quando o mouse se afastar ou estiver destraído;
         if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius || ray.collider || _rockTransform || GameManager.instance.inTrap) enemyRenderer.material.SetFloat("_OutlineSize", 0f);
+    }
+
+    private void CanBack()
+    {
+        enemy.nextPoint = _startPosition.transform; // Passa a posição anterior para o "WalkManager";
+        enemy.stopWalk = false; // Inimigo volta a andar;
+        _canBack = true; // Pode voltar para o ponto inicial;
     }
 }
