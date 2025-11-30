@@ -25,7 +25,7 @@ public class Player : Singleton<Player>
 
     [HideInInspector] public bool isHelping; // Salva se o player está ajudando algum aliado; Deve ser public para acessar em "Friend";
     [HideInInspector] public Vector2 lastClick; // Armazena a posição do click; Deve ser public para acessar em "Rock";
-    [HideInInspector] public bool canMove;
+    [HideInInspector] public bool canMove; // Evita que  player ande e atire pedras durante a transição;
 
     private float _xDir;
     private float _yDir;
@@ -110,10 +110,12 @@ public class Player : Singleton<Player>
     // Atira pedras;
     private void OnAttack()
     {
+        if (GameManager.instance.rockAmount <= 0 || !canMove) return;
+
         // Pega a posião do mouse na tela;
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         lastClick = Camera.main.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
 
-        if (GameManager.instance.rockAmount > 0) GameManager.instance.SpawnRock();
+        GameManager.instance.SpawnRock();
     }
 }

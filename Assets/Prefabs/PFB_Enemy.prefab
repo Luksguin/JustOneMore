@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb81bd87a7703479ae2945168967b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 0.8
+  speed: 1
   myRb: {fileID: 6218345751966541536}
   points:
   - {fileID: 935385347383599322}
@@ -472,7 +472,6 @@ MonoBehaviour:
   enemy: {fileID: 7402639761533773562}
   enemyRenderer: {fileID: 4458127594359406342}
   triggerRadius: 4
-  time: 4
   colorOutline: {r: 1, g: 1, b: 1, a: 1}
   sizeOutLine: 1
 --- !u!1 &5265947050652644580

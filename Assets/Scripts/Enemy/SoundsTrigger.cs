@@ -9,7 +9,6 @@ public class SoundsTrigger : MonoBehaviour
     public SpriteRenderer enemyRenderer; // Renderer do inimigo pai;
 
     public float triggerRadius; //Tamanho do trigger;
-    public float time; // Tempo que o inimigo fica destraído na pedra;
 
     public Color colorOutline; // Cor da borda;
     public float sizeOutLine; // Tamanho da borda;
@@ -58,9 +57,8 @@ public class SoundsTrigger : MonoBehaviour
                 enemy.stopWalk = true;
                 enemy.StopAnimations();
 
-                Invoke("CanBack", time);
+                Invoke("CanBack", GameManager.instance.rockTime);
             }
-
 
             // Entra se alcançar a posição anterior;
             if (Vector2.Distance(enemy.transform.position, _startPosition.position) <= 0 && _canBack)
@@ -80,8 +78,8 @@ public class SoundsTrigger : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, (new Vector3(mouse.x, mouse.y, 0f) - transform.position).normalized, raySize, mask);
 
-        // Aplica borda no inimigo se o mouse estiver perto o suficiente e sem nada entre o ele e o inimigo;
-        if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider && !GameManager.instance.inTrap) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
+        // Aplica borda no inimigo se o mouse estiver perto o suficiente, sem nada entre o ele e o inimigo, não estiver em alerta e tiver pedras restantes;
+        if (Vector2.Distance(mouse, enemy.transform.position) < triggerRadius && !ray.collider && !GameManager.instance.inTrap && GameManager.instance.rockAmount > 0) enemyRenderer.material.SetFloat("_OutlineSize", sizeOutLine);
 
         // Desativa a borda do inimigo quando o mouse se afastar ou estiver destraído;
         if (Vector2.Distance(mouse, enemy.transform.position) > triggerRadius || ray.collider || _rockTransform || GameManager.instance.inTrap) enemyRenderer.material.SetFloat("_OutlineSize", 0f);

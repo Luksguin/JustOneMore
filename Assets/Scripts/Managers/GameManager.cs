@@ -1,7 +1,6 @@
 using Luksguin.Singleton;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
 using DG.Tweening;
 using TMPro;
 
@@ -25,6 +24,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Rock")]
     public int rockAmount;
+    public int rockTime;
     public GameObject rockPrefab;
 
     [Header("Menus")]
@@ -140,11 +140,17 @@ public class GameManager : Singleton<GameManager>
         Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true); // Atualiza a animação do Player;
         Player.instance.speed = 0; // Trava a velocidade do Player;
 
+        Invoke("GameOverUI", 2f);
+    }
+
+    public void GameOverUI()
+    {
         playerUI.SetActive(false); // Desativa UI;
 
         // Ativa o menu de derrota;
         gameOverMenu.SetActive(true);
         gameOverMenu.transform.DOScale(1f, animDuration).SetEase(animEase);
+
     }
 
     // Instancia uma pedra;
