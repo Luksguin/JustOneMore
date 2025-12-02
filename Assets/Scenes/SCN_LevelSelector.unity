@@ -589,7 +589,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 0}
+  delay: 0
   startTransitionDuration: 0
   endTransitionDuration: 0
   myAudioSource: {fileID: 0}
@@ -1716,7 +1717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &748514054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2692,6 +2693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 1650776179}
+  delay: 0
   startTransitionDuration: 2
   endTransitionDuration: 2
   myAudioSource: {fileID: 1168212877}

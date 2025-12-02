@@ -24,6 +24,9 @@ public class ManagerScene : MonoBehaviour
 
     IEnumerator StartTransitionCoroutine()
     {
+        if (Player.instance) Player.instance.canMove = false;
+        if (Player.instance) Player.instance.speed = 0;
+
         transitionImage.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(delay);
@@ -33,6 +36,7 @@ public class ManagerScene : MonoBehaviour
         yield return new WaitForSeconds(startTransitionDuration - 3);
 
         if(Player.instance) Player.instance.canMove = true;
+        if(Player.instance) Player.instance.speed = 150;
         transitionImage.gameObject.SetActive(false);
     }
 

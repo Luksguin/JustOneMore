@@ -87,7 +87,7 @@ public class Player : Singleton<Player>
 
     private void FixedUpdate()
     {
-        if(canMove) Movement();
+        Movement();
     }
 
     #region MOVEMENT

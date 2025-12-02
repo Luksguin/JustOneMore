@@ -8,6 +8,9 @@ using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
+    public bool isFinalLevel;
+
+    [Header("WinCondition")]
     public int leftFriends; // Quantidade de aliados restantes;
     public float nerfFriend; // Nerf de velocidade quando estiver carregando um aliado;
     public float nerfWater; // Nerf de velocidade quando estiver na água;
@@ -135,9 +138,9 @@ public class GameManager : Singleton<GameManager>
     {
         // Toca audio de derrota;
         myAudioSource.clip = gameOverAudio;
-        myAudioSource.Play();
+        if(!isFinalLevel) myAudioSource.Play();
 
-        Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true); // Atualiza a animação do Player;
+        if (!isFinalLevel) Player.instance.myAnimator.SetBool(Player.instance.gameOverBool, true); // Atualiza a animação do Player;
         Player.instance.speed = 0; // Trava a velocidade do Player;
 
         Invoke("GameOverUI", 2f);
