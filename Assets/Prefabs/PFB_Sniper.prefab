@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 5214854182098998537}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.23, z: 0}
   m_LocalScale: {x: 2.13, y: 1.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 5644388121107242015}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 6738531150146068498}
   - component: {fileID: 1005147585215105002}
   - component: {fileID: 5115110518427427287}
+  - component: {fileID: 3416889760048711672}
   m_Layer: 6
   m_Name: PFB_Sniper
   m_TagString: Untagged
@@ -390,15 +391,15 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1492964711
-  m_SortingLayer: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8897733076530346357, guid: 8d46002cc637f71438f0fffb3fafac2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d46002cc637f71438f0fffb3fafac2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1.5}
+  m_Size: {x: 3.272, y: 4.88}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -438,15 +439,28 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.014053822, y: -1.2578256}
+  m_Offset: {x: 0.014053822, y: 0.62403333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.584, y: 4.48}
-    newSize: {x: 1, y: 1.5}
+    pivot: {x: 0.5, y: 0.06}
+    oldSize: {x: 3.272, y: 4.88}
+    newSize: {x: 3.272, y: 4.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8813043, y: 1.9643493}
+  m_Size: {x: 1.8813043, y: 1.334976}
   m_EdgeRadius: 0
+--- !u!114 &3416889760048711672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861095823832724678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7545b4efa9f8e0b4782bb9addc8fe80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteRendererManager
+  myRenderer: {fileID: 1005147585215105002}
