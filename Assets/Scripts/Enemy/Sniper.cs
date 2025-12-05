@@ -8,6 +8,8 @@ public class Sniper : MonoBehaviour
     public float min;
     public float max;
 
+    private Tween _rotate;
+
     private void Start()
     {
         Vector3 rot = transform.eulerAngles;
@@ -17,13 +19,25 @@ public class Sniper : MonoBehaviour
         IrParaMax();
     }
 
+    private void Update()
+    {
+        if (Player.instance.speed == 0 && _rotate != null)
+        {
+            _rotate.Pause();
+        }
+        else
+        {
+            _rotate.Play();
+        }
+    }
+
     private void IrParaMax()
     {
-        transform.DORotate(new Vector3(0, 0, max), duration).SetDelay(delay).SetEase(Ease.Linear).OnComplete(IrParaMin);
+        _rotate = transform.DORotate(new Vector3(0, 0, max), duration).SetDelay(delay).SetEase(Ease.Linear).OnComplete(IrParaMin);
     }
 
     private void IrParaMin()
     {
-        transform.DORotate(new Vector3(0, 0, min), duration).SetDelay(delay).SetEase(Ease.Linear).OnComplete(IrParaMax);
+        _rotate = transform.DORotate(new Vector3(0, 0, min), duration).SetDelay(delay).SetEase(Ease.Linear).OnComplete(IrParaMax);
     }
 }
