@@ -13,7 +13,7 @@ public class EnemyTrigger : MonoBehaviour
         {
             // .. um raycast é atirado na direção dele...
             int mask = LayerMask.GetMask("Default", "BodyPlayer");
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, (Player.instance.transform.position - transform.position).normalized, 100f, mask);
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 100000f, mask);
 
             if (ray.collider.tag == "Player" || ray.collider.tag == "FootPlayer")
             {

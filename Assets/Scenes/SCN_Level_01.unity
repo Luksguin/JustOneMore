@@ -179,7 +179,7 @@ MonoBehaviour:
   trapMessage: Cuidado! Inimigos em alerta!
   friendMessage: '"SENHOR, me ajude a salvar mais um!"'
   timeMessage: '"Estou ficando sem tempo!"'
-  rockAmount: 5
+  rockAmount: 2
   rockTime: 1
   rockPrefab: {fileID: 4391761931805958817, guid: c7802d649e0e06e47a7f0970e5b0604f, type: 3}
   winMenu: {fileID: 141561577}
@@ -722,7 +722,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 278502039
-  m_SortingLayer: 3
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -9654,7 +9654,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1492964711
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -10231,6 +10231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 935385347383599322, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.66
+      objectReference: {fileID: 0}
     - target: {fileID: 2061880822282712110, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy
@@ -10241,7 +10245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3349824897004968534, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.09
+      value: 6.67
       objectReference: {fileID: 0}
     - target: {fileID: 6053295388910850313, guid: ba0842b3a41655a479b550274a6e071f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10382,7 +10386,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2065754559
-  m_SortingLayer: 1
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -32275,7 +32279,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1492964711
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -33518,7 +33522,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1724389165
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

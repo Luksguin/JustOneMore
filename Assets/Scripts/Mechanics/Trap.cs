@@ -50,7 +50,7 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "FootPlayer")
         {
             vfx.Play();
             sfx.Play();

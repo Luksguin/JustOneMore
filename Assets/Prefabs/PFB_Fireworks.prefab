@@ -5034,8 +5034,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8538179371930041901}
-  - component: {fileID: 4747311654180699926}
   - component: {fileID: 7539582180936294587}
+  - component: {fileID: 9026298515831591837}
   - component: {fileID: 586815652371052413}
   - component: {fileID: 1807674856702215859}
   m_Layer: 2
@@ -5064,8 +5064,35 @@ Transform:
   - {fileID: 7671151933631678622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4747311654180699926
-CircleCollider2D:
+--- !u!50 &7539582180936294587
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979922920381087022}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!70 &9026298515831591837
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5098,35 +5125,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.08, y: -0.16}
-  m_Radius: 0.5
---- !u!50 &7539582180936294587
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4979922920381087022}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Offset: {x: -0.061191406, y: -0.16063486}
+  m_Size: {x: 0.80916464, y: 0.33214864}
+  m_Direction: 1
 --- !u!82 &586815652371052413
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5238,7 +5239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Trap
   vfx: {fileID: 8387408476814960710}
   sfx: {fileID: 586815652371052413}
-  myCollider: {fileID: 4747311654180699926}
+  myCollider: {fileID: 9026298515831591837}
   myRenderers:
   - {fileID: 4711314048742183436}
   - {fileID: 8473054770909961764}
