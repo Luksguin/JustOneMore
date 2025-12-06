@@ -331,6 +331,7 @@ MonoBehaviour:
   endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 1
+  cursor: {fileID: 2800000, guid: f708ce738acb31441a9b0b029df43a5f, type: 3}
 --- !u!82 &438861754
 AudioSource:
   m_ObjectHideFlags: 0

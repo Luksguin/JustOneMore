@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using System.Collections;
 
-// Armazena as funções de trocas de cenas;
+// Armazena as funções de trocas de cenas; e controla o cursor de brinde;
 
 public class ManagerScene : MonoBehaviour
 {
@@ -16,9 +16,12 @@ public class ManagerScene : MonoBehaviour
     public AudioSource myAudioSource;
 
     public bool startTransition;
+    public Texture2D cursor;
 
     private void Start()
     {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+
         if (startTransition) StartCoroutine(StartTransitionCoroutine());
     }
 

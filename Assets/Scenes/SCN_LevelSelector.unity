@@ -1292,6 +1292,7 @@ MonoBehaviour:
   endTransitionDuration: 0
   myAudioSource: {fileID: 0}
   startTransition: 0
+  cursor: {fileID: 0}
 --- !u!1 &617858052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MOUSE DIR
+  m_text: MOUSE ESQ
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5f4cf79ee9694e4986e9004d63e2cb8, type: 2}
   m_sharedMaterial: {fileID: -5528761171151685031, guid: e5f4cf79ee9694e4986e9004d63e2cb8, type: 2}
@@ -2698,6 +2699,7 @@ MonoBehaviour:
   endTransitionDuration: 2
   myAudioSource: {fileID: 1168212877}
   startTransition: 1
+  cursor: {fileID: 0}
 --- !u!4 &1168212876
 Transform:
   m_ObjectHideFlags: 0

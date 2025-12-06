@@ -2390,6 +2390,7 @@ MonoBehaviour:
   endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 0
+  cursor: {fileID: 0}
 --- !u!4 &1593890914
 Transform:
   m_ObjectHideFlags: 0

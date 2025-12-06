@@ -897,10 +897,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManagerScene
   transitionImage: {fileID: 1650776179}
+  delay: 0
   startTransitionDuration: 2
   endTransitionDuration: 2
   myAudioSource: {fileID: 0}
   startTransition: 1
+  cursor: {fileID: 0}
 --- !u!1 &583905951
 GameObject:
   m_ObjectHideFlags: 0
