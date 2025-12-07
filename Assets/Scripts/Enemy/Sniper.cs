@@ -16,12 +16,15 @@ public class Sniper : MonoBehaviour
         rot.z = min;
         transform.eulerAngles = rot;
 
-        IrParaMax();
+        if(min == 0 && max == 360)
+            _rotate = transform.DORotate(new Vector3(0, 0, max), duration, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
+        else 
+            IrParaMax();
     }
 
     private void Update()
     {
-        if (Player.instance.speed == 0 && _rotate != null)
+        if (Player.instance.speed == 0)
         {
             _rotate.Pause();
         }

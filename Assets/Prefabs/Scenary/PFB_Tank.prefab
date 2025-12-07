@@ -167,7 +167,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_Priority: 0
   m_ComponentVersion: 5
-  m_HasRenderer: 0
+  m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -187,18 +187,18 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.3369522, y: 0.9984894, z: 0}
-      m_Extent: {x: 1.5843582, y: 0.7994385, z: 0}
+      m_Center: {x: 0.016830444, y: 0.9988861, z: 0}
+      m_Extent: {x: 2.1583862, y: 0.99983215, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0.2
-  m_CastingOption: 1
+  m_CastingOption: 2
   m_PreviousTrimEdge: 0
-  m_PreviousEdgeProcessing: -1
-  m_PreviousShadowCastingSource: -1
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 3801044923989334587}
   references:
     version: 2
     RefIds:

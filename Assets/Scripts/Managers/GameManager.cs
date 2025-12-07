@@ -1,8 +1,9 @@
+using DG.Tweening;
 using Luksguin.Singleton;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using DG.Tweening;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 // Gerencia condições de vitória e derrota, menus, controla mecânicas;
 
@@ -130,7 +131,7 @@ public class GameManager : Singleton<GameManager>
         winMenu.transform.DOScale(1f, animDuration).SetEase(animEase);
 
         // Atualiza o progresso;
-        int level = PlayerPrefs.GetInt("Level");
+        int level = SceneManager.GetActiveScene().buildIndex - 2;
         PlayerPrefs.SetInt("Level", level + 1);
     }
 

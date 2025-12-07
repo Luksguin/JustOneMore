@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6727213778260754999}
   - component: {fileID: 1217519388173325975}
   - component: {fileID: 6231460873129809010}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PFB_Tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
